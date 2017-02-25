@@ -1,0 +1,36 @@
+{
+  "columns": [
+    {
+      "id": "pb",
+      "name": "Product Backlog"
+    }, {
+      "id": "sb",
+      "name": "Sprint Backlog"
+    }, {
+      "id": "busy",
+      "name": "Busy"
+    }, {
+      "id": "done",
+      "name": "Done"
+    }
+  ],
+  "stories": [
+    {
+      "id": 0,
+      "name": "Vague idea",
+      "column": "pb"
+    }, {
+      "id": 1,
+      "name": "Concrete item",
+      "column": "sb"
+    }, {
+      "id": 2,
+      "name": "Another Concrete item",
+      "column": "sb"
+    }, {
+      "id": 3,
+      "name": "Half-way done item",
+      "column": "busy"
+    }
+  ]
+}

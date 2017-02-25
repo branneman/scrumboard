@@ -1,0 +1,127 @@
+/**
+ * Variables
+ */
+:root {
+    --fontStack: Frutiger, Helvetica, sans-serif;
+
+    --colorPrimaryDark:  #B2710E;
+    --colorPrimaryLight: #FFCD83;
+    --colorOffBlack:     #333;
+
+    --headerHeight: 3.5em;
+}
+
+/**
+ * Common
+ */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--fontStack);
+    color: var(--colorOffBlack);
+    background: var(--colorPrimaryLight);
+}
+button {
+    padding: .5em .75em;
+    border: 1px solid var(--colorPrimaryLight);
+    border-radius: .25em;
+
+    background: var(--colorPrimaryLight);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/**
+ * Component: Column
+ */
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: var(--headerHeight);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--colorPrimaryDark);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+
+    &__title {
+        margin: 0 0 0 .6em;
+        padding-top: .25em;
+
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    &__new-story {
+        margin-right: 1.1em;
+    }
+}
+
+/**
+ * Component: Column
+ */
+.columns {
+    position: absolute;
+    top: var(--headerHeight);
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+
+    &__column {
+        flex: 1;
+        list-style: none;
+        margin: .5em;
+        padding: .5em;
+        border: 4px dashed transparent;
+
+        &.columns__column--dragging {
+            border: 4px dashed rgba(0, 0, 0, .5);
+        }
+    }
+}
+
+/**
+ * Component: ColumnHeader
+ */
+.column-header {
+    margin-bottom: 1em;
+
+    &__name {
+        margin: 0;
+        border-bottom: 2px solid var(--colorPrimaryDark);
+        font-family: var(--fontStack);
+    }
+}
+
+/**
+ * Component: Card
+ */
+.card {
+    background: rgba(255, 255, 255, .75);
+    border-radius: .25em;
+    padding: .5em;
+    cursor: pointer;
+    user-select: none;
+
+    & + .card {
+        margin-top: 1em;
+    }
+
+    &__name {
+        margin: 0;
+        font-family: var(--fontStack);
+    }
+}
