@@ -17,20 +17,28 @@
   "stories": [
     {
       "id": 0,
+      "column": "pb",
       "name": "Vague idea",
-      "column": "pb"
+      "est": "13",
+      "desc": "Just bodies. I need your clothes, your boots, and your motorcycle. Grant me revenge! And if you do not listen, then to hell with you. Make it quick because my horse is getting tired."
     }, {
       "id": 1,
-      "name": "Concrete item",
-      "column": "sb"
+      "name": "Actionable item",
+      "column": "sb",
+      "est": "37",
+      "desc": "Bacon ipsum dolor amet boudin andouille drumstick flank ham jerky, prosciutto meatloaf turkey chuck capicola sirloin kielbasa."
     }, {
       "id": 2,
-      "name": "Another Concrete item",
-      "column": "sb"
+      "name": "Another item",
+      "column": "sb",
+      "est": "42",
+      "desc": "The blowfish puffs himself up four, five times larger than normal and why? Why does he do that? So that it makes him intimidating, that's why."
     }, {
       "id": 3,
       "name": "Half-way done item",
-      "column": "busy"
+      "column": "busy",
+      "est": "π",
+      "desc": "Scenester street art kale chips meditation, distillery skateboard hella subway tile plaid raclette. Mustache bushwick you probably haven't heard of them."
     }
   ]
 }

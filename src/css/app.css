@@ -25,14 +25,39 @@ body {
     color: var(--colorOffBlack);
     background: var(--colorPrimaryLight);
 }
-button {
+
+/**
+ * Default form styles
+ */
+fieldset {
+    margin: 1em 0 0;
+    padding: 0;
+    border: 0;
+}
+label {
+    display: block;
+    margin-bottom: .25em;
+
+    & ~ label {
+        margin-top: 1em;
+    }
+}
+input[type=text], button, select, textarea {
+    width: 100%;
     padding: .5em .75em;
-    border: 1px solid var(--colorPrimaryLight);
+    border: 1px solid var(--colorPrimaryDark);
     border-radius: .25em;
 
-    background: var(--colorPrimaryLight);
     font-size: 1em;
     cursor: pointer;
+}
+button {
+    width: auto;
+    background: var(--colorPrimaryLight);
+}
+textarea {
+    height: 6em;
+    resize: none;
 }
 
 /**
@@ -110,9 +135,11 @@ button {
  * Component: Card
  */
 .card {
-    background: rgba(255, 255, 255, .75);
-    border-radius: .25em;
     padding: .5em;
+
+    background: rgba(255, 255, 255, .75);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+    border-radius: .25em;
     cursor: pointer;
     user-select: none;
 
@@ -124,4 +151,87 @@ button {
         margin: 0;
         font-family: var(--fontStack);
     }
+}
+
+/**
+ * Component: Dialog
+ */
+.dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, .7);
+
+    &--hidden {
+        display: none;
+    }
+
+    &__close {
+        position: absolute;
+        top: .25em;
+        right: .25em;
+
+        width: 1.5em;
+        height: 1.5em;
+        padding: 0;
+        line-height: .65em;
+
+        & span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+            padding: .13em 0 0 .02em;
+
+            font-size: 1.7em;
+            color: var(--colorPrimaryDark);
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 50vw;
+        max-width: 30em;
+        max-height: 30em;
+        height: 50vh;
+        padding: .5em;
+        overflow: scroll;
+
+        background: rgba(255, 255, 255, .75);
+        border: 2px solid var(--colorPrimaryDark);
+        border-radius: .25em;
+    }
+}
+
+/**
+ * Component: CardForm
+ */
+.cardform {
+    position: relative;
+    padding-top: 2em;
+
+    &__header {
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        left: -.5rem;
+        height: 3rem;
+        padding: .5em 0 0 .35em;
+
+        background: var(--colorPrimaryDark);
+        color: #000;
+        font-size: 1.4em;
+    }
+
+    &__name {}
 }

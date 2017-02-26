@@ -9,10 +9,14 @@ class Column extends React.Component {
         const cn = `columns__column ${ isActive ? 'columns__column--dragging' : '' }`;
 
         return this.props.connectDropTarget(
-            <li className={cn}>
+            <li key={this.props.column.id} className={cn}>
                 <ColumnHeader name={this.props.column.name} />
                 {this.props.stories.map(story =>
-                    <Card key={story.id} id={story.id} name={story.name} />)}
+                    <Card
+                        key={story.id}
+                        id={story.id}
+                        name={story.name}
+                        openDialogEditStory={this.props.openDialogEditStory} />)}
             </li>
         );
     }

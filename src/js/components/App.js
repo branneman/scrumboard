@@ -1,5 +1,6 @@
 import Header from './Header';
 import Column from './Column';
+import Dialog from './Dialog';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -14,6 +15,24 @@ class App extends React.Component {
         return this.state.stories.filter(story => story.column === column.id);
     }
 
+    getStory(id) {
+        return this.state.stories.find(story => story.id === id);
+    }
+
+    addStory(story) {
+        story.id = 1 + Math.max(...this.state.stories.map(s => s.id));
+        story.column = 'pb';
+
+        this.state.stories = this.state.stories.concat(story);
+        this.setState({ stories: this.state.stories });
+    }
+
+    updateStory(story) {
+        this.state.stories = this.state.stories.map(oldStory =>
+            oldStory.id === story.id ? story : oldStory);
+        this.setState({ stories: this.state.stories });
+    }
+
     moveStory(storyId, columnId) {
         this.state.stories = this.state.stories.map(story => {
             if (story.id === storyId) {
@@ -21,21 +40,47 @@ class App extends React.Component {
             }
             return story;
         });
-        this.setState(this.state);
+        this.setState({ stories: this.state.stories });
+    }
+
+    openDialogNewStory() {
+        this.setState({
+            dialogShown: true,
+            dialogStory: null
+        });
+    }
+
+    openDialogEditStory(id) {
+        this.setState({
+            dialogShown: true,
+            dialogStory: this.getStory(id)
+        });
+    }
+
+    closeDialog() {
+        this.setState({ dialogShown: false });
     }
 
     render() {
         return (
             <div className="layout">
-                <Header />
+                <Header openDialogNewStory={this.openDialogNewStory.bind(this)} />
                 <ul className="columns">
-                    {this.state.columns.map((column, i) =>
+                    {this.state.columns.map(column =>
                         <Column
-                            key={i}
+                            key={column.id}
                             column={column}
                             stories={this.getStoriesByColumn(column)}
-                            moveStory={this.moveStory.bind(this)} />)}
+                            getStory={this.getStory.bind(this)}
+                            moveStory={this.moveStory.bind(this)}
+                            openDialogEditStory={this.openDialogEditStory.bind(this)} />)}
                 </ul>
+                <Dialog
+                    shown={this.state.dialogShown}
+                    story={this.state.dialogStory}
+                    closeDialog={this.closeDialog.bind(this)}
+                    addStory={this.addStory.bind(this)}
+                    updateStory={this.updateStory.bind(this)} />
             </div>
         );
     }
