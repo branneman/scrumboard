@@ -5,8 +5,11 @@ import { DropTarget } from 'react-dnd';
 class Column extends React.Component {
 
     render() {
+        const isActive = this.props.canDrop && this.props.isOver;
+        const cn = `columns__column ${ isActive ? 'columns__column--dragging' : '' }`;
+
         return this.props.connectDropTarget(
-            <li className="columns__column">
+            <li className={cn}>
                 <ColumnHeader name={this.props.column.name} />
                 {this.props.stories.map(story =>
                     <Card key={story.id} id={story.id} name={story.name} />)}
@@ -22,7 +25,9 @@ class Column extends React.Component {
 
     static dropCollect(connect, monitor) {
         return {
-            connectDropTarget: connect.dropTarget()
+            connectDropTarget: connect.dropTarget(),
+            isOver: monitor.isOver(),
+            canDrop: monitor.canDrop()
         };
     }
 
