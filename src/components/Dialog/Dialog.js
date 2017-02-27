@@ -2,6 +2,22 @@ import CardForm from '../CardForm/CardForm';
 
 class Dialog extends React.Component {
 
+    static ESCAPE_KEY = 27;
+
+    _handleKeyDown(event) {
+        if (event.keyCode === Dialog.ESCAPE_KEY) {
+            this.props.closeDialog();
+        }
+    }
+
+    componentWillMount() {
+        document.addEventListener('keydown', e => this._handleKeyDown(e));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', e => this._handleKeyDown(e));
+    }
+
     render() {
         return (
             <div className={`dialog ${ this.props.shown ? '' : 'dialog--hidden' }`}>
