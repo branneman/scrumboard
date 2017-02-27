@@ -27,7 +27,8 @@
       "react"
     ],
     "plugins": [
-      "transform-class-properties"
+      "transform-class-properties",
+      "transform-decorators-legacy"
     ]
   },
   "dependencies": {
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",

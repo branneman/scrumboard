@@ -4,6 +4,7 @@ import Dialog from '../Dialog/Dialog';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
+@DragDropContext(HTML5Backend)
 class App extends React.Component {
 
     constructor(props) {
@@ -87,4 +88,4 @@ class App extends React.Component {
 
 }
 
-export default DragDropContext(HTML5Backend)(App);
+export default App;

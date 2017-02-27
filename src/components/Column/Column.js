@@ -2,6 +2,19 @@ import ColumnHeader from '../ColumnHeader/ColumnHeader';
 import Card from '../Card/Card';
 import { DropTarget } from 'react-dnd';
 
+const dropSpec = {
+    drop: (props, monitor) => {
+        props.moveStory(monitor.getItem().id, props.column.id);
+    }
+};
+
+const dropCollect = (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop()
+});
+
+@DropTarget('card', dropSpec, dropCollect)
 class Column extends React.Component {
 
     render() {
@@ -21,20 +34,6 @@ class Column extends React.Component {
         );
     }
 
-    static dropSpec = {
-        drop(props, monitor, component) {
-            props.moveStory(monitor.getItem().id, props.column.id);
-        }
-    };
-
-    static dropCollect(connect, monitor) {
-        return {
-            connectDropTarget: connect.dropTarget(),
-            isOver: monitor.isOver(),
-            canDrop: monitor.canDrop()
-        };
-    }
-
 }
 
-export default DropTarget('card', Column.dropSpec, Column.dropCollect)(Column);
+export default Column;

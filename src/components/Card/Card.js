@@ -1,5 +1,10 @@
 import { DragSource } from 'react-dnd';
 
+@DragSource(
+    'card',
+    { beginDrag: props => ({ id: props.id }) },
+    connect => ({ connectDragSource: connect.dragSource() })
+)
 class Card extends React.Component {
 
     constructor(props) {
@@ -13,18 +18,6 @@ class Card extends React.Component {
             </div>
         );
     }
-
-    static dragSpec = {
-        beginDrag(props, monitor, component) {
-            return { id: props.id };
-        }
-    };
-
-    static dragCollect(connect, monitor) {
-        return {
-            connectDragSource: connect.dragSource()
-        };
-    }
 }
 
-export default DragSource('card', Card.dragSpec, Card.dragCollect)(Card);
+export default Card;
