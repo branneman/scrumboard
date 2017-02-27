@@ -28,6 +28,14 @@
 
     background: var(--colorPrimaryLight);
 
+    @nest &:active, &:focus, &:hover {
+      background: var(--colorPrimaryMedium);
+
+      & span {
+        color: var(--colorWhite);
+      }
+    }
+
     & span {
       position: absolute;
       top: 0;

@@ -28,6 +28,11 @@ button {
   border: 0;
   background: var(--colorPrimaryDark);
   color: var(--colorWhite);
+
+  @nest &:active, &:focus, &:hover {
+    background: var(--colorPrimaryMedium);
+    color: var(--colorWhite);
+  }
 }
 
 textarea {
