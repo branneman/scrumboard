@@ -29,7 +29,8 @@ class Column extends React.Component {
                         key={story.id}
                         id={story.id}
                         name={story.name}
-                        openDialogEditStory={this.props.openDialogEditStory} />)}
+                        openDialogEditStory={this.props.openDialogEditStory}
+                        deleteStory={this.props.deleteStory} />)}
             </li>
         );
     }

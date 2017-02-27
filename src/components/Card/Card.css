@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   padding: .5em;
 
   background: var(--colorGrey);
@@ -14,5 +15,19 @@
   &__name {
     margin: 0;
     font-family: var(--fontStack);
+  }
+
+  &__delete {
+    position: absolute;
+    top: .45em;
+    right: .4em;
+    padding: .1em .35em .2em;
+
+    background: var(--colorPrimaryLight);
+    opacity: .3;
+
+    @nest &:active, &:focus, &:hover {
+      opacity: .6;
+    }
   }
 }

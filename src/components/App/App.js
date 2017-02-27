@@ -34,6 +34,11 @@ class App extends React.Component {
         this.setState({ stories: this.state.stories });
     }
 
+    deleteStory(id) {
+        this.state.stories = this.state.stories.filter(story => story.id !== id);
+        this.setState({ stories: this.state.stories });
+    }
+
     moveStory(storyId, columnId) {
         this.state.stories = this.state.stories.map(story => {
             if (story.id === storyId) {
@@ -74,6 +79,7 @@ class App extends React.Component {
                             stories={this.getStoriesByColumn(column)}
                             getStory={this.getStory.bind(this)}
                             moveStory={this.moveStory.bind(this)}
+                            deleteStory={this.deleteStory.bind(this)}
                             openDialogEditStory={this.openDialogEditStory.bind(this)} />)}
                 </ul>
                 <Dialog
