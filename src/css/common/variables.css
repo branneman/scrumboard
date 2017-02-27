@@ -1,9 +1,16 @@
 :root {
-  --fontStack: Frutiger, Helvetica, sans-serif;
 
-  --colorPrimaryDark:  #B2710E;
-  --colorPrimaryLight: #FFCD83;
-  --colorOffBlack:     #333;
+  --fontStack: 'Source Sans Pro', sans-serif;
 
+  --colorPrimaryDark:   #0e67a3;
+  --colorPrimaryMedium: #1278bf;
+  --colorPrimaryLight:  #4f94be;
+
+  --colorOffBlack:      #4d4d4d;
+  --colorGrey:          #e2e4e6;
+  --colorWhite:         #f6f6f6;
+
+  --bodyMinWidth: 768px;
   --headerHeight: 3.5em;
+
 }

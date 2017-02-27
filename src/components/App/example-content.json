@@ -2,10 +2,10 @@
   "columns": [
     {
       "id": "pb",
-      "name": "Product Backlog"
+      "name": "Backlog"
     }, {
       "id": "sb",
-      "name": "Sprint Backlog"
+      "name": "Sprint log"
     }, {
       "id": "busy",
       "name": "Busy"

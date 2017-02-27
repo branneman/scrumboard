@@ -7,7 +7,7 @@ class Header extends React.Component {
     render() {
         return (
             <header className="header">
-                <h1 className="header__title">Scrumboard.</h1>
+                <h1 className="header__title">Scrum</h1>
                 <button className="header__new-story" onClick={this.newStory.bind(this)}>
                     + New Story
                 </button>

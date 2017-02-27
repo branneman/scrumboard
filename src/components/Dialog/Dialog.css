@@ -8,6 +8,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  min-width: var(--bodyMinWidth);
 
   background: rgba(0, 0, 0, .7);
 
@@ -25,6 +26,8 @@
     padding: 0;
     line-height: .65em;
 
+    background: var(--colorPrimaryLight);
+
     & span {
       position: absolute;
       top: 0;
@@ -33,7 +36,7 @@
       left: 0;
 
       display: block;
-      padding: .13em 0 0 .02em;
+      padding: .2em 0 0 .02em;
 
       font-size: 1.7em;
       color: var(--colorPrimaryDark);
@@ -43,13 +46,11 @@
   &__content {
     position: relative;
     width: 50vw;
-    max-width: 30em;
-    max-height: 30em;
-    height: 50vh;
-    padding: .5em;
+    max-width: 28em;
+    padding: 1em;
     overflow: scroll;
 
-    background: rgba(255, 255, 255, .75);
+    background: var(--colorGrey);
     border: 2px solid var(--colorPrimaryDark);
     border-radius: .25em;
   }

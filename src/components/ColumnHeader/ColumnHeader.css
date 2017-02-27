@@ -3,7 +3,12 @@
 
   &__name {
     margin: 0;
+    padding-bottom: .25em;
     border-bottom: 2px solid var(--colorPrimaryDark);
+
     font-family: var(--fontStack);
+    font-size: 1.125em;
+    text-transform: uppercase;
+    color: var(--colorWhite);
   }
 }

@@ -25,7 +25,9 @@ input[type=text], button, select, textarea {
 
 button {
   width: auto;
-  background: var(--colorPrimaryLight);
+  border: 0;
+  background: var(--colorPrimaryDark);
+  color: var(--colorWhite);
 }
 
 textarea {
