@@ -1,0 +1,9 @@
+.column-header {
+  margin-bottom: 1em;
+
+  &__name {
+    margin: 0;
+    border-bottom: 2px solid var(--colorPrimaryDark);
+    font-family: var(--fontStack);
+  }
+}

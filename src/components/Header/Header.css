@@ -1,0 +1,26 @@
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--headerHeight);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--colorPrimaryDark);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+
+  &__title {
+    margin: 0 0 0 .6em;
+    padding-top: .25em;
+
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  &__new-story {
+    margin-right: 1.1em;
+  }
+}

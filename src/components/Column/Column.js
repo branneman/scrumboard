@@ -1,5 +1,5 @@
-import ColumnHeader from './ColumnHeader';
-import Card from './Card';
+import ColumnHeader from '../ColumnHeader/ColumnHeader';
+import Card from '../Card/Card';
 import { DropTarget } from 'react-dnd';
 
 class Column extends React.Component {

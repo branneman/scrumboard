@@ -1,4 +1,4 @@
-import CardForm from './CardForm';
+import CardForm from '../CardForm/CardForm';
 
 class Dialog extends React.Component {
 

@@ -1,0 +1,9 @@
+:root {
+  --fontStack: Frutiger, Helvetica, sans-serif;
+
+  --colorPrimaryDark:  #B2710E;
+  --colorPrimaryLight: #FFCD83;
+  --colorOffBlack:     #333;
+
+  --headerHeight: 3.5em;
+}

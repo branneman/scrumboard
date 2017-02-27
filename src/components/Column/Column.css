@@ -1,0 +1,24 @@
+.columns {
+  position: absolute;
+  top: var(--headerHeight);
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+
+  &__column {
+    flex: 1;
+    list-style: none;
+    margin: .5em;
+    padding: .5em;
+    border: 4px dashed transparent;
+
+    &.columns__column--dragging {
+      border: 4px dashed rgba(0, 0, 0, .5);
+    }
+  }
+}

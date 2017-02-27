@@ -1,0 +1,56 @@
+.dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, .7);
+
+  &--hidden {
+    display: none;
+  }
+
+  &__close {
+    position: absolute;
+    top: .25em;
+    right: .25em;
+
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    line-height: .65em;
+
+    & span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+      padding: .13em 0 0 .02em;
+
+      font-size: 1.7em;
+      color: var(--colorPrimaryDark);
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 50vw;
+    max-width: 30em;
+    max-height: 30em;
+    height: 50vh;
+    padding: .5em;
+    overflow: scroll;
+
+    background: rgba(255, 255, 255, .75);
+    border: 2px solid var(--colorPrimaryDark);
+    border-radius: .25em;
+  }
+}

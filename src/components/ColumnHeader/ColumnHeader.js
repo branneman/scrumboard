@@ -1,4 +1,4 @@
-export default class ColumnHeader extends React.Component {
+class ColumnHeader extends React.Component {
     render() {
         return (
             <div className="column-header">
@@ -7,3 +7,5 @@ export default class ColumnHeader extends React.Component {
         );
     }
 }
+
+export default ColumnHeader;

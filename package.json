@@ -9,7 +9,7 @@
     "build:dist": "echo '[START] build:dist' && npm run clean && npm run mkdirs && npm run css && npm run js && npm run react:dist && npm run uglify && npm run html && echo '[FINISH] build:dist'",
     "clean": "rm -rf dist",
     "mkdirs": "mkdir -p dist/js && mkdir dist/css",
-    "css": "postcss -u postcss-cssnext -d dist/css/ src/css/*.css",
+    "css": "postcss -u postcss-import -u postcss-cssnext -d dist/css/ src/css/*.css",
     "js": "browserify -t babelify src/js/app.js -o dist/js/app.js",
     "react:dev": "cp node_modules/react/dist/react.js dist/js/react.min.js && cp node_modules/react-dom/dist/react-dom.js dist/js/react-dom.min.js",
     "react:dist": "cp node_modules/react/dist/react.min.js node_modules/react-dom/dist/react-dom.min.js dist/js/",
@@ -47,6 +47,7 @@
     "onchange": "^3.2.1",
     "postcss-cli": "^2.6.0",
     "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
     "uglifyjs": "^2.4.10"
   }
 }

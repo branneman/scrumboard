@@ -1,6 +1,6 @@
-import Header from './Header';
-import Column from './Column';
-import Dialog from './Dialog';
+import Header from '../Header/Header';
+import Column from '../Column/Column';
+import Dialog from '../Dialog/Dialog';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -8,7 +8,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = require('../initialstate.json');
+        this.state = require('./example-content.json');
     }
 
     getStoriesByColumn(column) {
