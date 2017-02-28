@@ -7,10 +7,6 @@ import { DragSource } from 'react-dnd';
 )
 class Card extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     openDialogEditStory(event) {
         if (event.target.tagName === 'BUTTON') {
             return;
@@ -28,7 +24,12 @@ class Card extends React.Component {
     render() {
         return this.props.connectDragSource(
             <div className="card" onClick={this.openDialogEditStory.bind(this)}>
-                <p className="card__name">{this.props.name}</p>
+                <p className="card__name">
+                    {this.props.est
+                        ? <span className="est">{this.props.est} &ndash; </span>
+                        : ''}
+                    <span className="name">{this.props.name}</span>
+                </p>
                 <button className="card__delete" onClick={this.deleteStory.bind(this)}>&times;</button>
             </div>
         );
