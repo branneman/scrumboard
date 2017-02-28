@@ -4,18 +4,18 @@ class Dialog extends React.Component {
 
     static ESCAPE_KEY = 27;
 
-    _handleKeyDown(event) {
+    handleKeyDown(event) {
         if (event.keyCode === Dialog.ESCAPE_KEY) {
             this.props.closeDialog();
         }
     }
 
     componentWillMount() {
-        document.addEventListener('keydown', e => this._handleKeyDown(e));
+        document.addEventListener('keydown', event => this.handleKeyDown(event));
     }
 
     componentWillUnmount() {
-        document.removeEventListener('keydown', e => this._handleKeyDown(e));
+        document.removeEventListener('keydown', event => this.handleKeyDown(event));
     }
 
     render() {
