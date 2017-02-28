@@ -67,20 +67,25 @@ class App extends React.Component {
         this.setState({ dialogShown: false });
     }
 
+    renderColumn(column) {
+        return (
+            <Column
+                key={column.id}
+                column={column}
+                stories={this.getStoriesByColumn(column)}
+                getStory={this.getStory.bind(this)}
+                moveStory={this.moveStory.bind(this)}
+                deleteStory={this.deleteStory.bind(this)}
+                openDialogEditStory={this.openDialogEditStory.bind(this)} />
+        );
+    }
+
     render() {
         return (
             <div className="layout">
                 <Header openDialogNewStory={this.openDialogNewStory.bind(this)} />
                 <ul className="columns">
-                    {this.state.columns.map(column =>
-                        <Column
-                            key={column.id}
-                            column={column}
-                            stories={this.getStoriesByColumn(column)}
-                            getStory={this.getStory.bind(this)}
-                            moveStory={this.moveStory.bind(this)}
-                            deleteStory={this.deleteStory.bind(this)}
-                            openDialogEditStory={this.openDialogEditStory.bind(this)} />)}
+                    {this.state.columns.map(column => this.renderColumn(column))}
                 </ul>
                 <Dialog
                     shown={this.state.dialogShown}
