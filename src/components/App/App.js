@@ -1,6 +1,7 @@
-import Header from '../Header/Header';
+import CardForm from '../CardForm/CardForm';
 import Column from '../Column/Column';
 import Dialog from '../Dialog/Dialog';
+import Header from '../Header/Header';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -87,12 +88,13 @@ class App extends React.Component {
                 <ul className="columns">
                     {this.state.columns.map(column => this.renderColumn(column))}
                 </ul>
-                <Dialog
-                    shown={this.state.dialogShown}
-                    story={this.state.dialogStory}
-                    closeDialog={this.closeDialog.bind(this)}
-                    addStory={this.addStory.bind(this)}
-                    updateStory={this.updateStory.bind(this)} />
+                <Dialog shown={this.state.dialogShown} closeDialog={this.closeDialog.bind(this)}>
+                    <CardForm
+                        story={this.state.dialogStory}
+                        closeDialog={this.closeDialog.bind(this)}
+                        addStory={this.addStory.bind(this)}
+                        updateStory={this.updateStory.bind(this)} />
+                </Dialog>
             </div>
         );
     }
