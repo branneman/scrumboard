@@ -1,6 +1,7 @@
 import React from 'react';
 
 class ColumnHeader extends React.Component {
+
     render() {
         return (
             <div className="column-header">
@@ -8,6 +9,7 @@ class ColumnHeader extends React.Component {
             </div>
         );
     }
+
 }
 
 export default ColumnHeader;

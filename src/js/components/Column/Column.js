@@ -19,17 +19,12 @@ const dropCollect = (connect, monitor) => ({
 @DropTarget('card', dropSpec, dropCollect)
 class Column extends React.Component {
 
-    renderCard(story) {
-        return (
-            <Card
-                key={story.id}
-                id={story.id}
-                est={story.est}
-                name={story.name}
-                openDialogEditStory={this.props.openDialogEditStory}
-                deleteStory={this.props.deleteStory} />
-        );
-    }
+    static propTypes = {
+        column: React.PropTypes.object.isRequired,
+        stories: React.PropTypes.array.isRequired,
+        moveStory: React.PropTypes.func.isRequired,
+        deleteStory: React.PropTypes.func.isRequired,
+    };
 
     render() {
         const isActive = this.props.canDrop && this.props.isOver;
@@ -40,6 +35,15 @@ class Column extends React.Component {
                 <ColumnHeader name={this.props.column.name} />
                 {this.props.stories.map(story => this.renderCard(story))}
             </li>
+        );
+    }
+
+    renderCard(story) {
+        return (
+            <Card
+                key={story.id}
+                story={story}
+                deleteStory={this.props.deleteStory} />
         );
     }
 

@@ -2,9 +2,11 @@
 @import 'common/common.css';
 @import 'common/form.css';
 
-@import '../components/Card/Card.css';
-@import '../components/CardForm/CardForm.css';
-@import '../components/Column/Column.css';
-@import '../components/ColumnHeader/ColumnHeader.css';
-@import '../components/Dialog/Dialog.css';
-@import '../components/Header/Header.css';
+@import '../js/pages/NotFound/NotFound.css';
+
+@import '../js/components/Card/Card.css';
+@import '../js/components/CardForm/CardForm.css';
+@import '../js/components/Column/Column.css';
+@import '../js/components/ColumnHeader/ColumnHeader.css';
+@import '../js/components/Dialog/Dialog.css';
+@import '../js/components/Header/Header.css';

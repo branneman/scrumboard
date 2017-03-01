@@ -1,19 +1,24 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import { autobind } from 'core-decorators';
 
 @autobind
 class CardForm extends React.Component {
 
-    static emptyState = {
-        id: null,
-        name: '',
-        est: '',
-        desc: ''
+    static propTypes = {
+        story: React.PropTypes.shape({
+            // id: React.PropTypes.number.isRequired, // @todo null/number
+            est: React.PropTypes.string.isRequired,
+            name: React.PropTypes.string.isRequired,
+            desc: React.PropTypes.string.isRequired
+        }),
+        addStory: React.PropTypes.func.isRequired,
+        updateStory: React.PropTypes.func.isRequired
     };
 
     constructor(props) {
         super(props);
-        this.state = props.story || CardForm.emptyState;
+        this.state = props.story;
     }
 
     isNew() {
@@ -28,7 +33,8 @@ class CardForm extends React.Component {
             ? this.props.addStory(this.state)
             : this.props.updateStory(this.state);
 
-        this.props.closeDialog();
+        // @todo goBack() vs. /
+        browserHistory.push('/');
     }
 
     handleChange(event) {

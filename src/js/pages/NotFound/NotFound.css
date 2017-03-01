@@ -1,0 +1,9 @@
+.notfound {
+  margin-top: 6em;
+
+  &__title {
+    color: var(--colorPrimaryDark);
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

@@ -13,7 +13,10 @@ label {
   }
 }
 
-input[type=text], button, select, textarea {
+input[type=text],
+button, .button,
+select,
+textarea {
   width: 100%;
   padding: .5em .75em;
   border: 1px solid var(--colorPrimaryDark);
@@ -23,11 +26,12 @@ input[type=text], button, select, textarea {
   cursor: pointer;
 }
 
-button {
+button, .button {
   width: auto;
   border: 0;
   background: var(--colorPrimaryDark);
   color: var(--colorWhite);
+  text-align: center;
 
   @nest &:active, &:focus, &:hover {
     background: var(--colorPrimaryMedium);

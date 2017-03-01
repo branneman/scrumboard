@@ -13,6 +13,10 @@
   background: var(--colorPrimaryDark);
   box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
 
+  & a {
+    text-decoration: none;
+  }
+
   &__title {
     margin: 0 0 .05em .6em;
     padding-left: 1.25em;
@@ -32,7 +36,7 @@
   }
 
   &__new-story {
-    margin-right: 1.1em;
+    margin-right: .5em;
     background: var(--colorPrimaryLight);
     color: var(--colorWhite);
   }

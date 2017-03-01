@@ -1,26 +1,36 @@
 import React from 'react';
 import { DragSource } from 'react-dnd';
+import { browserHistory } from 'react-router';
 import { autobind } from 'core-decorators';
 
 @DragSource(
     'card',
-    { beginDrag: props => ({ id: props.id }) },
+    { beginDrag: props => ({ id: props.story.id }) },
     connect => ({ connectDragSource: connect.dragSource() })
 )
 @autobind
 class Card extends React.Component {
 
+    static propTypes = {
+        story: React.PropTypes.shape({
+            id: React.PropTypes.number.isRequired,
+            est: React.PropTypes.string.isRequired,
+            name: React.PropTypes.string.isRequired
+        }),
+        deleteStory: React.PropTypes.func.isRequired
+    };
+
     openDialogEditStory(event) {
         if (event.target.tagName === 'BUTTON') {
             return;
         }
-        this.props.openDialogEditStory(this.props.id);
+        browserHistory.push(`/story/${this.props.story.id}`);
     }
 
     deleteStory(event) {
         event.preventDefault();
         if (confirm('Are you sure you wish to delete this story?')) {
-            this.props.deleteStory(this.props.id);
+            this.props.deleteStory(this.props.story.id);
         }
     }
 
@@ -28,10 +38,10 @@ class Card extends React.Component {
         return this.props.connectDragSource(
             <div className="card" onClick={this.openDialogEditStory}>
                 <p className="card__name">
-                    {this.props.est
-                        ? <span className="est">{this.props.est} &ndash; </span>
+                    {this.props.story.est
+                        ? <span className="est">{this.props.story.est} &ndash; </span>
                         : ''}
-                    <span className="name">{this.props.name}</span>
+                    <span className="name">{this.props.story.name}</span>
                 </p>
                 <button className="card__delete" onClick={this.deleteStory}>&times;</button>
             </div>
