@@ -4,8 +4,10 @@ import Dialog from '../Dialog/Dialog';
 import Header from '../Header/Header';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { autobind } from 'core-decorators';
 
 @DragDropContext(HTML5Backend)
+@autobind
 class App extends React.Component {
 
     constructor(props) {
@@ -74,26 +76,26 @@ class App extends React.Component {
                 key={column.id}
                 column={column}
                 stories={this.getStoriesByColumn(column)}
-                getStory={this.getStory.bind(this)}
-                moveStory={this.moveStory.bind(this)}
-                deleteStory={this.deleteStory.bind(this)}
-                openDialogEditStory={this.openDialogEditStory.bind(this)} />
+                getStory={this.getStory}
+                moveStory={this.moveStory}
+                deleteStory={this.deleteStory}
+                openDialogEditStory={this.openDialogEditStory} />
         );
     }
 
     render() {
         return (
             <div className="layout">
-                <Header openDialogNewStory={this.openDialogNewStory.bind(this)} />
+                <Header openDialogNewStory={this.openDialogNewStory} />
                 <ul className="columns">
                     {this.state.columns.map(column => this.renderColumn(column))}
                 </ul>
-                <Dialog shown={this.state.dialogShown} closeDialog={this.closeDialog.bind(this)}>
+                <Dialog shown={this.state.dialogShown} closeDialog={this.closeDialog}>
                     <CardForm
                         story={this.state.dialogStory}
-                        closeDialog={this.closeDialog.bind(this)}
-                        addStory={this.addStory.bind(this)}
-                        updateStory={this.updateStory.bind(this)} />
+                        closeDialog={this.closeDialog}
+                        addStory={this.addStory}
+                        updateStory={this.updateStory} />
                 </Dialog>
             </div>
         );

@@ -1,10 +1,12 @@
 import { DragSource } from 'react-dnd';
+import { autobind } from 'core-decorators';
 
 @DragSource(
     'card',
     { beginDrag: props => ({ id: props.id }) },
     connect => ({ connectDragSource: connect.dragSource() })
 )
+@autobind
 class Card extends React.Component {
 
     openDialogEditStory(event) {
@@ -23,14 +25,14 @@ class Card extends React.Component {
 
     render() {
         return this.props.connectDragSource(
-            <div className="card" onClick={this.openDialogEditStory.bind(this)}>
+            <div className="card" onClick={this.openDialogEditStory}>
                 <p className="card__name">
                     {this.props.est
                         ? <span className="est">{this.props.est} &ndash; </span>
                         : ''}
                     <span className="name">{this.props.name}</span>
                 </p>
-                <button className="card__delete" onClick={this.deleteStory.bind(this)}>&times;</button>
+                <button className="card__delete" onClick={this.deleteStory}>&times;</button>
             </div>
         );
     }

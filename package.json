@@ -27,11 +27,12 @@
       "react"
     ],
     "plugins": [
-      "transform-class-properties",
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
+      "transform-class-properties"
     ]
   },
   "dependencies": {
+    "core-decorators": "^0.15.0",
     "react": "^15.4.2",
     "react-dnd": "^2.2.3",
     "react-dnd-html5-backend": "^2.2.3",

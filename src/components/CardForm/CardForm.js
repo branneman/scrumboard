@@ -1,3 +1,6 @@
+import { autobind } from 'core-decorators';
+
+@autobind
 class CardForm extends React.Component {
 
     static emptyState = {
@@ -37,7 +40,7 @@ class CardForm extends React.Component {
 
     render() {
         return (
-            <form className="cardform" onSubmit={this.handleSaveClose.bind(this)}>
+            <form className="cardform" onSubmit={this.handleSaveClose}>
 
                 <legend className="cardform__header">
                     { this.isNew() ? 'New Story' : 'Edit Story' }
@@ -51,7 +54,7 @@ class CardForm extends React.Component {
                         id="story-name"
                         name="name"
                         value={this.state.name}
-                        onChange={this.handleChange.bind(this)} />
+                        onChange={this.handleChange} />
 
                     <label htmlFor="story-est">Estimate:</label>
                     <input
@@ -59,19 +62,19 @@ class CardForm extends React.Component {
                         id="story-est"
                         name="est"
                         value={this.state.est}
-                        onChange={this.handleChange.bind(this)} />
+                        onChange={this.handleChange} />
 
                     <label htmlFor="story-desc">Description:</label>
                     <textarea
                         id="story-desc"
                         name="desc"
                         value={this.state.desc}
-                        onChange={this.handleChange.bind(this)} />
+                        onChange={this.handleChange} />
 
                 </fieldset>
 
                 <fieldset>
-                    <button onClick={this.handleSaveClose.bind(this)}>
+                    <button onClick={this.handleSaveClose}>
                         { this.isNew() ? 'Add' : 'Save' }
                     </button>
                 </fieldset>

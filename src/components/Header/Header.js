@@ -1,3 +1,6 @@
+import { autobind } from 'core-decorators';
+
+@autobind
 class Header extends React.Component {
 
     newStory() {
@@ -8,7 +11,7 @@ class Header extends React.Component {
         return (
             <header className="header">
                 <h1 className="header__title">Scrum</h1>
-                <button className="header__new-story" onClick={this.newStory.bind(this)}>
+                <button className="header__new-story" onClick={this.newStory}>
                     + New Story
                 </button>
             </header>
