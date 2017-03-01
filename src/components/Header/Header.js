@@ -1,3 +1,4 @@
+import React from 'react';
 import { autobind } from 'core-decorators';
 
 @autobind

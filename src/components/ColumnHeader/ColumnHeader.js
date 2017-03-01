@@ -1,3 +1,5 @@
+import React from 'react';
+
 class ColumnHeader extends React.Component {
     render() {
         return (

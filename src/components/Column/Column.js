@@ -1,6 +1,8 @@
-import ColumnHeader from '../ColumnHeader/ColumnHeader';
-import Card from '../Card/Card';
+import React from 'react';
 import { DropTarget } from 'react-dnd';
+
+import Card from '../Card/Card';
+import ColumnHeader from '../ColumnHeader/ColumnHeader';
 
 const dropSpec = {
     drop: (props, monitor) => {

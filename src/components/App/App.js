@@ -1,10 +1,12 @@
+import React from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { autobind } from 'core-decorators';
+
 import CardForm from '../CardForm/CardForm';
 import Column from '../Column/Column';
 import Dialog from '../Dialog/Dialog';
 import Header from '../Header/Header';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { autobind } from 'core-decorators';
 
 @DragDropContext(HTML5Backend)
 @autobind
