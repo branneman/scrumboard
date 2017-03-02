@@ -11,24 +11,26 @@ import Header from '../../components/Header/Header';
 class Dashboard extends React.Component {
 
     render() {
+        const cols = this.props.state.columns;
         return (
             <div className="layout">
                 <Header controls={true} />
                 <ul className="columns">
-                    {this.props.state.columns.map(column => this.renderColumn(column))}
+                    {cols.map(column => this.renderColumn(column))}
                 </ul>
             </div>
         );
     }
 
     renderColumn(column) {
+        const store = this.props.store;
         return (
             <Column
                 key={column.id}
                 column={column}
-                stories={this.props.store.getStoriesByColumn(column)}
-                moveStory={this.props.store.moveStory}
-                deleteStory={this.props.store.deleteStory} />
+                stories={store.getStoriesByColumn(column)}
+                moveStory={store.moveStory}
+                deleteStory={store.deleteStory} />
         );
     }
 
