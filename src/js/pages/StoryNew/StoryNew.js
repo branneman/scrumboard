@@ -8,13 +8,11 @@ import Header from '../../components/Header/Header';
 @Store
 class StoryNew extends React.Component {
 
-    // @todo goBack() vs. /
-
     render() {
         return (
             <div className="layout">
                 <Header controls={true} />
-                <Dialog closeUrl={'/'}>
+                <Dialog>
                     <CardForm
                         story={this.props.store.getEmptyStory()}
                         addStory={this.props.store.addStory}

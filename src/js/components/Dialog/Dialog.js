@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { autobind } from 'core-decorators';
 
 @autobind
@@ -7,15 +7,9 @@ class Dialog extends React.Component {
 
     static ESCAPE_KEY = 27;
 
-    // @todo goBack() vs. closeUrl
-    static propTypes = {
-        closeUrl: React.PropTypes.string.isRequired
-    };
-
-    // @todo goBack() vs. /
     handleKeyDown(event) {
         if (event.keyCode === Dialog.ESCAPE_KEY) {
-            browserHistory.push(this.props.closeUrl);
+            browserHistory.goBack();
         }
     }
 
@@ -32,9 +26,9 @@ class Dialog extends React.Component {
             <div className="dialog">
                 <div className="dialog__content">
                     {this.props.children}
-                    <Link className="dialog__close button" to={this.props.closeUrl}>
+                    <button className="dialog__close" onClick={browserHistory.goBack}>
                         <span>&times;</span>
-                    </Link>
+                    </button>
                 </div>
             </div>
         );

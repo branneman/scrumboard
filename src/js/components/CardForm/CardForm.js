@@ -33,7 +33,6 @@ class CardForm extends React.Component {
             ? this.props.addStory(this.state)
             : this.props.updateStory(this.state);
 
-        // @todo goBack() vs. /
         browserHistory.push('/');
     }
 

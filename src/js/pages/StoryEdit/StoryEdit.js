@@ -12,12 +12,10 @@ class StoryEdit extends React.Component {
 
         const storyId = parseInt(window.location.pathname.match(/\d+/)[0], 10);
 
-        // @todo goBack() vs. /
-
         return (
             <div className="layout">
                 <Header controls={true} />
-                <Dialog closeUrl={'/'}>
+                <Dialog>
                     <CardForm
                         story={this.props.store.getStory(storyId)}
                         addStory={this.props.store.addStory}
@@ -25,7 +23,6 @@ class StoryEdit extends React.Component {
                 </Dialog>
             </div>
         );
-
     }
 
 }
