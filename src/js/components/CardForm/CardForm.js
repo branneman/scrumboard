@@ -7,7 +7,7 @@ class CardForm extends React.Component {
 
     static propTypes = {
         story: React.PropTypes.shape({
-            // id: React.PropTypes.number.isRequired, // @todo null/number
+            id: React.PropTypes.number,
             est: React.PropTypes.string.isRequired,
             name: React.PropTypes.string.isRequired,
             desc: React.PropTypes.string.isRequired
