@@ -24,6 +24,5 @@ const render = () => {
     );
 };
 
-store.setState(initialstate);
 store.subscribe(render);
-render();
+store.setState(initialstate);
