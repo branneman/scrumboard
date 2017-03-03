@@ -3,6 +3,8 @@ import { DragSource } from 'react-dnd';
 import { browserHistory } from 'react-router';
 import { autobind } from 'core-decorators';
 
+import store from '../../store/store';
+
 @DragSource(
     'card',
     { beginDrag: props => ({ id: props.story.id }) },
@@ -16,8 +18,7 @@ class Card extends React.Component {
             id: React.PropTypes.number.isRequired,
             est: React.PropTypes.string.isRequired,
             name: React.PropTypes.string.isRequired
-        }),
-        deleteStory: React.PropTypes.func.isRequired
+        })
     };
 
     openDialogEditStory(event) {
@@ -30,7 +31,7 @@ class Card extends React.Component {
     deleteStory(event) {
         event.preventDefault();
         if (confirm('Are you sure you wish to delete this story?')) {
-            this.props.deleteStory(this.props.story.id);
+            store.deleteStory(this.props.story.id);
         }
     }
 

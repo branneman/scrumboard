@@ -2,6 +2,8 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 import { autobind } from 'core-decorators';
 
+import store from '../../store/store';
+
 @autobind
 class CardForm extends React.Component {
 
@@ -11,9 +13,7 @@ class CardForm extends React.Component {
             est: React.PropTypes.string.isRequired,
             name: React.PropTypes.string.isRequired,
             desc: React.PropTypes.string.isRequired
-        }),
-        addStory: React.PropTypes.func.isRequired,
-        updateStory: React.PropTypes.func.isRequired
+        })
     };
 
     constructor(props) {
@@ -30,8 +30,8 @@ class CardForm extends React.Component {
         event.preventDefault();
 
         this.isNew()
-            ? this.props.addStory(this.state)
-            : this.props.updateStory(this.state);
+            ? store.addStory(this.state)
+            : store.updateStory(this.state);
 
         browserHistory.push('/');
     }
