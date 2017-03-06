@@ -38,19 +38,22 @@ class Store {
         return 1 + Math.max(...this.state.stories.map(s => s.id));
     }
 
-    addStory(story) {
-        story.id = this.getNextStoryId();
-        story.column = 'pb';
-        this.setState({
-            stories: this.state.stories.concat(story)
-        });
-    }
+    saveStory(story) {
 
-    updateStory(story) {
-        this.setState({
-            stories: this.state.stories.map(oldStory =>
-                oldStory.id === story.id ? story : oldStory)
-        });
+        const isNew = story.id === null;
+
+        if (isNew) {
+            story.id = this.getNextStoryId();
+            story.column = 'pb';
+            this.setState({
+                stories: this.state.stories.concat(story)
+            });
+        } else {
+            this.setState({
+                stories: this.state.stories.map(oldStory =>
+                    oldStory.id === story.id ? story : oldStory)
+            });
+        }
     }
 
     deleteStory(id) {

@@ -26,13 +26,8 @@ class CardForm extends React.Component {
     }
 
     handleSaveClose(event) {
-
         event.preventDefault();
-
-        this.isNew()
-            ? store.addStory(this.state)
-            : store.updateStory(this.state);
-
+        store.saveStory(this.state);
         browserHistory.push('/');
     }
 
