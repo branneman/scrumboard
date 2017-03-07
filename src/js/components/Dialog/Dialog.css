@@ -24,15 +24,8 @@
 
     background: var(--colorPrimaryLight);
 
-    @nest &:active, &:focus, &:hover {
-      background: var(--colorPrimaryMedium);
-
-      & span {
-        color: var(--colorWhite);
-      }
-    }
-
-    & span {
+    &::before {
+      content: '×';
       position: absolute;
       top: 0;
       right: 0;
@@ -44,6 +37,14 @@
 
       font-size: 1.7em;
       color: var(--colorPrimaryDark);
+    }
+
+    @nest &:active, &:focus, &:hover {
+      background: var(--colorPrimaryMedium);
+
+      &::before {
+        color: var(--colorWhite);
+      }
     }
   }
 

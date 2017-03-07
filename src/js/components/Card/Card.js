@@ -38,12 +38,12 @@ class Card extends React.Component {
     render() {
         return this.props.connectDragSource(
             <div className="card" onClick={this.openDialogEditStory}>
-                <p className="card__name">
+                <p className="card__title">
                     {this.props.story.est &&
-                        <span className="est">{this.props.story.est} &ndash; </span>}
-                    <span className="name">{this.props.story.name}</span>
+                        <span className="card__est">{this.props.story.est}</span>}
+                    <span className="card__name">{this.props.story.name}</span>
                 </p>
-                <button className="card__delete" onClick={this.deleteStory}>&times;</button>
+                <button className="card__delete" onClick={this.deleteStory} />
             </div>
         );
     }

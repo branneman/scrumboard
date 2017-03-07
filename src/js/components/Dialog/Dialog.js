@@ -26,9 +26,7 @@ class Dialog extends React.Component {
             <div className="dialog">
                 <div className="dialog__content">
                     {this.props.children}
-                    <button className="dialog__close" onClick={browserHistory.goBack}>
-                        <span>&times;</span>
-                    </button>
+                    <button className="dialog__close" onClick={browserHistory.goBack} />
                 </div>
             </div>
         );

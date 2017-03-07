@@ -21,7 +21,7 @@ class Header extends React.Component {
     renderControls() {
         return (
             <Link to="/story" className="header__new-story button">
-                + New Story
+                New Story
             </Link>
         );
     }

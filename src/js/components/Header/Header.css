@@ -39,5 +39,9 @@
     margin-right: .5em;
     background: var(--colorPrimaryLight);
     color: var(--colorWhite);
+
+    &::before {
+      content: '+ ';
+    }
   }
 }
