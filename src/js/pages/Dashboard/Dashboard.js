@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div className="layout">
-                <Header controls={true} />
+                <Header controls />
                 <ul className="columns">
                     {store.state.columns.map(col => this.renderColumn(col))}
                 </ul>

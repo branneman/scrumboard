@@ -27,7 +27,7 @@ class Column extends React.Component {
 
     render() {
         const isActive = this.props.canDrop && this.props.isOver;
-        const cn = `columns__column ${ isActive ? 'columns__column--dragging' : '' }`;
+        const cn = `columns__column ${ isActive && 'columns__column--dragging' }`;
 
         return this.props.connectDropTarget(
             <li key={this.props.column.id} className={cn}>

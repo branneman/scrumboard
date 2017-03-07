@@ -39,9 +39,8 @@ class Card extends React.Component {
         return this.props.connectDragSource(
             <div className="card" onClick={this.openDialogEditStory}>
                 <p className="card__name">
-                    {this.props.story.est
-                        ? <span className="est">{this.props.story.est} &ndash; </span>
-                        : ''}
+                    {this.props.story.est &&
+                        <span className="est">{this.props.story.est} &ndash; </span>}
                     <span className="name">{this.props.story.name}</span>
                 </p>
                 <button className="card__delete" onClick={this.deleteStory}>&times;</button>

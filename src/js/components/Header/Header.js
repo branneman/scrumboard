@@ -12,15 +12,15 @@ class Header extends React.Component {
     render() {
         return (
             <header className="header">
-                <Link to={'/'}><h1 className="header__title">Scrum</h1></Link>
-                {this.props.controls ? this.renderControls() : ''}
+                <Link to="/"><h1 className="header__title">Scrum</h1></Link>
+                {this.props.controls && this.renderControls()}
             </header>
         );
     }
 
     renderControls() {
         return (
-            <Link to={'/story'} className="header__new-story button">
+            <Link to="/story" className="header__new-story button">
                 + New Story
             </Link>
         );

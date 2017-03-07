@@ -10,7 +10,7 @@ class StoryNew extends React.Component {
     render() {
         return (
             <div className="layout">
-                <Header controls={true} />
+                <Header controls />
                 <Dialog>
                     <CardForm story={store.getEmptyStory()} />
                 </Dialog>
