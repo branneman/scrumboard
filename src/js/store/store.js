@@ -27,7 +27,8 @@ class Store {
     }
 
     getStory(id) {
-        return this.state.stories.find(story => story.id === id);
+        const storyId = parseInt(id, 10);
+        return this.state.stories.find(story => story.id === storyId);
     }
 
     getEmptyStory() {
