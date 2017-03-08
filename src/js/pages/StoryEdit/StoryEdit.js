@@ -8,12 +8,12 @@ import Header from '../../components/Header/Header';
 class StoryEdit extends React.Component {
 
     render() {
-        const storyId = parseInt(window.location.pathname.match(/\d+/)[0], 10);
+        const story = store.getStory(this.props.params.storyId);
         return (
             <div className="layout">
                 <Header controls />
                 <Dialog>
-                    <CardForm story={store.getStory(storyId)} />
+                    <CardForm story={story} />
                 </Dialog>
             </div>
         );
